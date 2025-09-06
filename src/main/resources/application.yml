@@ -1,0 +1,107 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /e-commerce/api
+spring:
+  cache:
+    type: redis
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: e-commerce-api
+  rabbitmq:
+    host: 103.188.83.162
+    port: 5672
+    username: thientdk
+    password: Qwertyu1@
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://103.188.83.162:5432/tms_user
+    username: thientdk
+    password: Qwertyu1@
+    hikari:
+      connection-timeout: 60000
+      maximum-pool-size: 25
+      minimum-idle: 5
+      idle-timeout: 600000
+      max-lifetime: 1800000
+      schema: public
+  jpa:
+    generate-ddl: false
+    hibernate.ddl-auto: none
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        jdbc.batch_size: 1000
+        order_inserts: true
+        default_schema: public
+  data:
+    redis:
+      host: 103.188.83.162
+      port: 6379
+grpc:
+  server:
+    port: 6500
+jwt:
+  signerKey: "iaKQ2Ed0Lm8m3WK9ul4IvbUdA9GO8Es1FRjrVwlm/NeANnIaGNP0tQv1vUTb22mR"
+  expiration-time: 86400000
+system:
+  configurations:
+    cors:
+      allow-credentials: true
+      allowed-methods:
+        - GET
+        - POST
+        - PUT
+        - PATCH
+        - DELETE
+        - OPTIONS
+      allowed-header:
+        - Authorization
+        - Origin
+        - Content-Type
+        - Accept
+        - Accept-Encoding
+        - Accept-Language
+        - Access-Control-Allow-Origin
+        - Access-Control-Allow-Headers
+        - Access-Control-Request-Method
+        - X-Requested-With
+        - X-Auth-Token
+        - X-Xsrf-Token
+        - Cache-Control
+        - Id-Token
+      exposed-header:
+        - X-Xsrf-Token
+      url-based-pattern-cors-configuration-source: '/**'
+      allowed-origin-pattern:
+        - http://localhost:3000
+        - http://localhost:4200
+        - http://localhost:5173
+        - https://localhost:5173
+        - http://localhost:5173/
+        - https://localhost:5173/
+        - http://localhost:63342
+    url-white-list:
+      - '/swagger-ui.html'
+      - '/swagger/**'
+      - '/swagger-ui/**'
+      - '/swagger/v3/api/docs'
+      - '/swagger/v3/api/docs/**'
+      - '/v3/api-docs'
+      - '/v3/api-docs/**'
+      - '/v1/health'
+      - '/v1/auth/**'
+#logging:
+#  level:
+#    org.springframework.security: DEBUG
+#    org.springdoc: DEBUG
+#    org.springframework.web: DEBUG
+#    org.springframework.boot.autoconfigure: INFO
+
+
+
+
