@@ -16,7 +16,7 @@ spring:
     password: Qwertyu1@
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://103.188.83.162:5432/tms_user
+    url: jdbc:postgresql://103.188.83.162:5432/e_commerce
     username: thientdk
     password: Qwertyu1@
     hikari:

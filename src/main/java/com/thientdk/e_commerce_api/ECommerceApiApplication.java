@@ -18,8 +18,8 @@ public class ECommerceApiApplication {
 		SpringApplication.run(ECommerceApiApplication.class, args);
 
 		log.info("========================================================");
-		log.info("|              E-COMMERCE API CODE BASE                |");
-		log.info("|              DEVELOP BY THIEN TRAN                   |");
+		log.info("|              E-COMMERCE API 		                 |");
+		log.info("|              DEVELOP BY THIENTDK                     |");
 		log.info("========================================================");
 	}
 
