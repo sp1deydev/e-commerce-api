@@ -1,6 +1,6 @@
 package com.thientdk.e_commerce_api.services;
 
-import com.thientdk.e_commerce_api.entities.LoginAttempt;
+import com.thientdk.e_commerce_api.entities.LoginAttemptEntity;
 import com.thientdk.e_commerce_api.repositories.LoginAttemptRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +16,7 @@ public class LoginAttemptService {
 
     public void saveLoginAttempt(String userId, String username, boolean success, String failureReason) {
         log.info("[saveLoginAttempt] - save login log START");
-        LoginAttempt attempt = LoginAttempt.builder()
+        LoginAttemptEntity attempt = LoginAttemptEntity.builder()
                 .userId(userId)
                 .username(username)
                 .ipAddress(getClientIp())

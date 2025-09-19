@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "login_attempts")
-public class LoginAttempt {
+public class LoginAttemptEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
