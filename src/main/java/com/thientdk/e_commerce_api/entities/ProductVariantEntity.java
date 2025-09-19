@@ -28,4 +28,7 @@ public class ProductVariantEntity extends BaseEntity {
 
     @Column(name = "base_price")
     private Number base_price;
+
+    @Column(name = "image_url")
+    private String image_url;
 }

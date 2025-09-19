@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
 public class AttributeEntity {
     @Id
     @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
     @Column(name = "name")

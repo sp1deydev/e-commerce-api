@@ -95,6 +95,7 @@ system:
       - '/v3/api-docs/**'
       - '/v1/health'
       - '/v1/auth/**'
+      - 'v1/attributes/**'
 #logging:
 #  level:
 #    org.springframework.security: DEBUG
