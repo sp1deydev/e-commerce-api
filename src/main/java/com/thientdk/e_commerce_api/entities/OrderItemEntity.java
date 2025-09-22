@@ -17,10 +17,10 @@ public class OrderItemEntity {
     private String id;
 
     @Column(name = "order_id")
-    private String order_id;
+    private String orderId;
 
     @Column(name = "product_variant_id")
-    private String product_variant_id;
+    private String productVariantId;
 
     @Column(name = "quantity")
     private Integer quantity;

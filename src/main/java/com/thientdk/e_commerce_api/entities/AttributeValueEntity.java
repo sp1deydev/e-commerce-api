@@ -18,10 +18,10 @@ public class AttributeValueEntity {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
 
-    @Column(name = "order_id")
-    private String order_id;
+    @Column(name = "attribute_id")
+    private String attributeId;
 
-    @Column(name = "product_variant_id")
-    private String product_variant_id;
+    @Column(name = "value")
+    private String value;
 
 }

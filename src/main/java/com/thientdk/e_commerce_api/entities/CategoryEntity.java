@@ -24,7 +24,7 @@ public class CategoryEntity extends BaseEntity {
     private String slug;
 
     @Column(name = "parent_id")
-    private String parent_id;
+    private String parentId;
 
     @Column(name = "description")
     private String description;

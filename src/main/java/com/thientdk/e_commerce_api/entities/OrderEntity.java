@@ -18,14 +18,14 @@ public class OrderEntity extends BaseEntity {
     private String id;
 
     @Column(name = "user_id")
-    private String user_id;
+    private String userId;
 
     @Column(name = "total_amount")
-    private Number total_amount;
+    private Number totalAmount;
 
     @Column(name = "status")
     private String status;
 
     @Column(name = "base_price")
-    private Number base_price;
+    private Number basePrice;
 }

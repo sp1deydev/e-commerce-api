@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AttributeValueRepository extends JpaRepository<AttributeValueEntity, String> {
+    void deleteByAttributeId(String attributeId);
 }

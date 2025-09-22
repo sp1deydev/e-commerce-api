@@ -19,12 +19,12 @@ public class ProductVariantAtrributeEntity {
     private String id;
 
     @Column(name = "order_id")
-    private String order_id;
+    private String orderId;
 
     @Column(name = "product_variant_id")
-    private String product_variant_id;
+    private String productVariantId;
 
     @Column(name = "attribute_value_id")
-    private String attribute_value_id;
+    private String attributeValueId;
 
 }

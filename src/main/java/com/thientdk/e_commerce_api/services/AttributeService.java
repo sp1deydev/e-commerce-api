@@ -70,12 +70,12 @@ public class AttributeService {
             throw new ApiException(ErrorCode.BAD_REQUEST, "Attribute not found with id: " + id);
         }
         attributeRepository.deleteById(id);
-
-        //todo: delete related attribute value
+        attributeValueRepository.deleteByAttributeId(id);
 
         log.info("[deleteAttribute] - END");
         return new TextResponse("Delete Attribute successfully.");
     }
+
 
     public Page<AttributeEntity> getAttributes(Integer page, Integer size, String keySearch, Pageable pageable) {
         log.info("[getAttributes] - START");

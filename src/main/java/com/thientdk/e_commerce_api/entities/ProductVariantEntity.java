@@ -18,17 +18,17 @@ public class ProductVariantEntity extends BaseEntity {
     private String id;
 
     @Column(name = "product_id")
-    private String product_id;
+    private String productId;
 
     @Column(name = "sku")
     private String sku;
 
     @Column(name = "stock_quantity")
-    private Integer stock_quantity;
+    private Integer stockQuantity;
 
     @Column(name = "base_price")
-    private Number base_price;
+    private Number basePrice;
 
     @Column(name = "image_url")
-    private String image_url;
+    private String imageUrl;
 }

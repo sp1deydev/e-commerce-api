@@ -21,14 +21,14 @@ public class ProductEntity extends BaseEntity {
     private String name;
 
     @Column(name = "category_id")
-    private String category_id;
+    private String categoryId;
 
     @Column(name = "description")
     private String description;
 
     @Column(name = "base_price")
-    private Number base_price;
+    private Number basePrice;
 
     @Column(name = "image_url")
-    private String image_url;
+    private String imageUrl;
 }
