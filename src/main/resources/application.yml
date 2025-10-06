@@ -16,9 +16,12 @@ spring:
     password: Qwertyu1@
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://103.188.83.162:5432/e_commerce
-    username: thientdk
-    password: Qwertyu1@
+#    url: jdbc:postgresql://103.188.83.162:5432/e_commerce
+#    username: thientdk
+#    password: Qwertyu1
+    url: jdbc:postgresql://localhost:5432/e_commerce
+    username: postgres
+    password: 123456
     hikari:
       connection-timeout: 60000
       maximum-pool-size: 25
