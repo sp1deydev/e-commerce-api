@@ -3,7 +3,9 @@ package com.thientdk.e_commerce_api.services;
 import com.thientdk.e_commerce_api.aop.exceptions.ApiException;
 import com.thientdk.e_commerce_api.aop.exceptions.ErrorCode;
 import com.thientdk.e_commerce_api.entities.AttributeEntity;
+import com.thientdk.e_commerce_api.entities.AttributeValueEntity;
 import com.thientdk.e_commerce_api.models.dtos.AttributeDto;
+import com.thientdk.e_commerce_api.models.dtos.AttributeValueDto;
 import com.thientdk.e_commerce_api.models.responses.TextResponse;
 import com.thientdk.e_commerce_api.repositories.AttributeRepository;
 import com.thientdk.e_commerce_api.repositories.AttributeValueRepository;
@@ -15,6 +17,9 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Slf4j
 @Service
@@ -49,7 +54,6 @@ public class AttributeService {
         }
 
         log.info("[updateAttribute] - START");
-
         AttributeEntity attributeEntity = attributeRepository.findById(attributeDto.getId())
                 .orElseThrow(() -> new ApiException(ErrorCode.BAD_REQUEST, "Attribute not found with id: " + attributeDto.getId()));
 
@@ -88,23 +92,52 @@ public class AttributeService {
         return attributeEntities;
     }
 
-    public void createAttributeValue() {
-        log.info("[createAttributeValue] - START");
-        log.info("[createAttributeValue] - END");
+    public TextResponse createUpdateAttributeValue(AttributeValueDto request) {
+        if (request.getId() == null) {
+            log.info("[createUpdateAttributeValue] - create attribute id START");
+            AttributeValueEntity entity = new AttributeValueEntity();
+            entity.setAttributeId(request.getAttributeId());
+            entity.setValue(request.getValue());
+            attributeValueRepository.save(entity);
+            log.info("[createUpdateAttributeValue] - create attribute id END");
+            return new TextResponse("Create Attribute Value successfully.");
+        }
+        else {
+            log.info("[createUpdateAttributeValue] - update attribute id START");
+            Optional<AttributeValueEntity> opt = attributeValueRepository.findById(request.getId());
+            if (opt.isEmpty()) {
+                log.info("[createUpdateAttributeValue] - attribute value not found");
+                throw new ApiException(ErrorCode.BAD_REQUEST, "Attribute value not found with id: " + request.getId());
+            }
+            AttributeValueEntity entity = opt.get();
+            entity.setAttributeId(request.getAttributeId());
+            entity.setValue(request.getValue());
+            attributeValueRepository.save(entity);
+            log.info("[createUpdateAttributeValue] - update attribute id END");
+            return new TextResponse("Update Attribute Value successfully.");
+        }
+
     }
 
-    public void updateAttributeValue() {
-        log.info("[updateAttributeValue] - START");
-        log.info("[updateAttributeValue] - END");
-    }
-
-    public void deleteAttributeValue() {
+    public TextResponse deleteAttributeValue(String id) {
+        if (StringUtil.isNullOrEmpty(id)) {
+            log.info("[deleteAttributeValue] - delete attribute value - id is null");
+            throw new ApiException(ErrorCode.BAD_REQUEST, "Attribute id is not valid!");
+        }
         log.info("[deleteAttributeValue] - START");
+        if (!attributeRepository.existsById(id)) {
+            log.info("[deleteAttributeValue] - attribute value not found");
+            throw new ApiException(ErrorCode.BAD_REQUEST, "Attribute not found with id: " + id);
+        }
+        attributeValueRepository.deleteById(id);
         log.info("[deleteAttributeValue] - END");
+        return new TextResponse("Delete Attribute Value successfully.");
     }
 
-    public void getAttributeValuesByAttribute() {
-        log.info("[getAttributeValuesByAttribute] - START");
-        log.info("[getAttributeValuesByAttribute] - END");
+    public List<AttributeValueEntity> getAttributeValuesByAttributeId(String id) {
+        log.info("[getAttributeValuesByAttributeId] - START");
+        List<AttributeValueEntity> entities = attributeValueRepository.findAttributeValueEntitiesByAttributeId(id);
+        log.info("[getAttributeValuesByAttributeId] - END");
+        return entities;
     }
 }

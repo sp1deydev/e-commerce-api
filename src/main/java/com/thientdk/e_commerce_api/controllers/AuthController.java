@@ -30,5 +30,4 @@ public class AuthController {
 
     //todo: refresh token and introspect
     //todo: add swagger to the app
-    //todo: save log login attempts
 }
