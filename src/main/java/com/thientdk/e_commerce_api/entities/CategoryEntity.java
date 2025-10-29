@@ -25,16 +25,9 @@ public class CategoryEntity extends BaseEntity {
     @Column(name = "slug")
     private String slug;
 
-    @Column(name = "parent_id")
+    @Column(name = "parent_id", insertable = false, updatable = false)
     private String parentId;
 
     @Column(name = "description")
     private String description;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parent_id")
-    private CategoryEntity parent;
-
-    @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<CategoryEntity> children;
 }
