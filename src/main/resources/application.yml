@@ -99,12 +99,18 @@ system:
       - '/v1/health'
       - '/v1/auth/**'
       - '/v1/categories/**'
+      - '/v1/uploads/**'
+      - '/uploads/**'
+      - '/v1/products/**'
 #logging:
 #  level:
 #    org.springframework.security: DEBUG
 #    org.springdoc: DEBUG
 #    org.springframework.web: DEBUG
 #    org.springframework.boot.autoconfigure: INFO
+uploads:
+  image-dir: uploads/images/
+  image-pre-url: http://localhost:8080/e-commerce/api/
 
 
 

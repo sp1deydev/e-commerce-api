@@ -21,11 +21,11 @@ public class OrderEntity extends BaseEntity {
     private String userId;
 
     @Column(name = "total_amount")
-    private Number totalAmount;
+    private Long totalAmount;
 
     @Column(name = "status")
     private String status;
 
     @Column(name = "base_price")
-    private Number basePrice;
+    private Long basePrice;
 }

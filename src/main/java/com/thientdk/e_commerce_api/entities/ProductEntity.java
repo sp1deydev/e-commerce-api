@@ -27,7 +27,7 @@ public class ProductEntity extends BaseEntity {
     private String description;
 
     @Column(name = "base_price")
-    private Number basePrice;
+    private Long basePrice;
 
     @Column(name = "image_url")
     private String imageUrl;

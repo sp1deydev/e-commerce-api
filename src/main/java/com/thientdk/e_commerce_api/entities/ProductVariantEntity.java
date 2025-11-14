@@ -27,7 +27,7 @@ public class ProductVariantEntity extends BaseEntity {
     private Integer stockQuantity;
 
     @Column(name = "base_price")
-    private Number basePrice;
+    private Long basePrice;
 
     @Column(name = "image_url")
     private String imageUrl;

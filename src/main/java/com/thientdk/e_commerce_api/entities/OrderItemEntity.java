@@ -26,5 +26,5 @@ public class OrderItemEntity {
     private Integer quantity;
 
     @Column(name = "price")
-    private Number price;
+    private Long price;
 }
