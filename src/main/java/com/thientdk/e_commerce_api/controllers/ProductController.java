@@ -1,6 +1,7 @@
 package com.thientdk.e_commerce_api.controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.thientdk.e_commerce_api.entities.ProductEntity;
 import com.thientdk.e_commerce_api.models.requests.ProductRequest;
 import com.thientdk.e_commerce_api.models.responses.TextResponse;
 import com.thientdk.e_commerce_api.services.ProductService;
@@ -26,4 +27,8 @@ public class ProductController {
         return productService.insertProduct(file, request);
     }
 
+    @GetMapping("/{id}")
+    public ProductEntity getOne(@PathVariable("id") String id) {
+        return productService.getOne(id);
+    }
 }

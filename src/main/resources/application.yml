@@ -110,6 +110,7 @@ system:
 #    org.springframework.boot.autoconfigure: INFO
 uploads:
   image-dir: uploads/images/
+  product-image-dir: uploads/images/products/
   image-pre-url: http://localhost:8080/e-commerce/api/
 
 
